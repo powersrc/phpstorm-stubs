@@ -87,7 +87,7 @@ class JsonIncrementalParser  {
  * </p>
  * @return string|false a JSON encoded string on success or <b>FALSE</b> on failure.
  */
-function json_encode ($value, $options = 0, $depth = 512) {}
+function json_encode ($value, int $options = 0, int $depth = 512): string {}
 
 /**
  * (PHP 5 &gt;= 5.2.0, PECL json &gt;= 1.2.0)<br/>
@@ -124,7 +124,7 @@ function json_encode ($value, $options = 0, $depth = 512) {}
  * <i>json</i> cannot be decoded or if the encoded
  * data is deeper than the recursion limit.
  */
-function json_decode ($json, $assoc = false, $depth = 512, $options = 0) {}
+function json_decode (string $json, bool $assoc = false, int $depth = 512, int $options = 0) {}
 
 /**
  * Returns the last error occurred
