@@ -37,7 +37,7 @@ interface IteratorAggregate extends Traversable {
      * <b>Traversable</b>
      * @since 5.0.0
      */
-    public function getIterator();
+    public function getIterator(): Traversable;
 }
 
 /**
@@ -61,7 +61,7 @@ interface Iterator extends Traversable {
      * @return void Any returned value is ignored.
      * @since 5.0.0
      */
-    public function next();
+    public function next(): void;
 
     /**
      * Return the key of the current element
@@ -78,7 +78,7 @@ interface Iterator extends Traversable {
      * Returns true on success or false on failure.
      * @since 5.0.0
      */
-    public function valid();
+    public function valid(): bool;
 
     /**
      * Rewind the Iterator to the first element
@@ -86,7 +86,7 @@ interface Iterator extends Traversable {
      * @return void Any returned value is ignored.
      * @since 5.0.0
      */
-    public function rewind();
+    public function rewind(): void;
 }
 
 /**
@@ -107,7 +107,7 @@ interface ArrayAccess {
      * The return value will be casted to boolean if non-boolean was returned.
      * @since 5.0.0
      */
-    public function offsetExists($offset);
+    public function offsetExists($offset): bool;
 
     /**
      * Offset to retrieve
@@ -132,7 +132,7 @@ interface ArrayAccess {
      * @return void
      * @since 5.0.0
      */
-    public function offsetSet($offset, $value);
+    public function offsetSet($offset, $value): void;
 
     /**
      * Offset to unset
@@ -143,7 +143,7 @@ interface ArrayAccess {
      * @return void
      * @since 5.0.0
      */
-    public function offsetUnset($offset);
+    public function offsetUnset($offset): void;
 }
 
 /**
@@ -158,7 +158,7 @@ interface Serializable {
      * @return string the string representation of the object or null
      * @since 5.1.0
      */
-    public function serialize();
+    public function serialize(): string;
 
     /**
      * Constructs the object
@@ -169,7 +169,7 @@ interface Serializable {
      * @return void
      * @since 5.1.0
      */
-    public function unserialize($serialized);
+    public function unserialize(string $serialized): void;
 }
 
 
@@ -188,7 +188,7 @@ interface Throwable
      * @return string
      * @since 7.0
      */
-    public function getMessage();
+    public function getMessage(): string;
 
     /**
      * Gets the exception code
@@ -209,7 +209,7 @@ interface Throwable
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    public function getFile();
+    public function getFile(): string;
 
     /**
      * Gets the line on which the object was instantiated
@@ -217,7 +217,7 @@ interface Throwable
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    public function getLine();
+    public function getLine(): int;
 
     /**
      * Gets the stack trace
@@ -228,7 +228,7 @@ interface Throwable
      * </p>
      * @since 7.0
      */
-    public function getTrace();
+    public function getTrace(): array;
 
     /**
      * Gets the stack trace as a string
@@ -236,7 +236,7 @@ interface Throwable
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    public function getTraceAsString();
+    public function getTraceAsString(): string;
 
     /**
      * Returns the previous Throwable
@@ -244,7 +244,7 @@ interface Throwable
      * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    public function getPrevious();
+    public function getPrevious(): Throwable;
 
     /**
      * Gets a string representation of the thrown object
@@ -252,7 +252,7 @@ interface Throwable
      * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
-    public function __toString();
+    public function __toString(): string;
 }
 /**
  * Exception is the base class for
@@ -283,7 +283,7 @@ class Exception implements Throwable {
      * @param Throwable $previous [optional] The previous throwable used for the exception chaining.
      * @since 5.1.0
      */
-    public function __construct($message = "", $code = 0, Throwable $previous = null) { }
+    public function __construct(string $message = "", int $code = 0, Throwable $previous = null) { }
 
     /**
      * Gets the Exception message
@@ -291,7 +291,7 @@ class Exception implements Throwable {
      * @return string the Exception message as a string.
      * @since 5.1.0
      */
-    final public function getMessage() { }
+    final public function getMessage(): string { }
 
     /**
      * Gets the Exception code
@@ -310,7 +310,7 @@ class Exception implements Throwable {
      * @return string the filename in which the exception was created.
      * @since 5.1.0
      */
-    final public function getFile() { }
+    final public function getFile(): string { }
 
     /**
      * Gets the line in which the exception occurred
@@ -318,7 +318,7 @@ class Exception implements Throwable {
      * @return int the line number where the exception was created.
      * @since 5.1.0
      */
-    final public function getLine() { }
+    final public function getLine(): int { }
 
     /**
      * Gets the stack trace
@@ -326,7 +326,7 @@ class Exception implements Throwable {
      * @return array the Exception stack trace as an array.
      * @since 5.1.0
      */
-    final public function getTrace() { }
+    final public function getTrace(): array { }
 
     /**
      * Returns previous Exception
@@ -335,7 +335,7 @@ class Exception implements Throwable {
      * or null otherwise.
      * @since 5.3.0
      */
-    final public function getPrevious() { }
+    final public function getPrevious(): Throwable { }
 
     /**
      * Gets the stack trace as a string
@@ -343,7 +343,7 @@ class Exception implements Throwable {
      * @return string the Exception stack trace as a string.
      * @since 5.1.0
      */
-    final public function getTraceAsString() { }
+    final public function getTraceAsString(): string { }
 
     /**
      * String representation of the exception
@@ -351,7 +351,7 @@ class Exception implements Throwable {
      * @return string the string representation of the exception.
      * @since 5.1.0
      */
-    public function __toString() { }
+    public function __toString(): string { }
 
     public function __wakeup() { }
 }
@@ -370,7 +370,7 @@ class Error implements Throwable {
      * @param int $code [optional] The Error code.
      * @param Throwable $previous [optional] The previous throwable used for the exception chaining.
      */
-    public function __construct($message = "", $code = 0, Throwable $previous = null)
+    public function __construct(string $message = "", int $code = 0, Throwable $previous = null)
     {
     }
 
@@ -380,7 +380,7 @@ class Error implements Throwable {
      * @return string
      * @since 7.0
      */
-    public final function getMessage()
+    public final function getMessage(): string
     {
     }
 
@@ -395,7 +395,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    public final function getCode(){}
+    public final function getCode(): int{}
 
 
     /**
@@ -404,7 +404,7 @@ class Error implements Throwable {
      * @return string Returns the name of the file from which the object was thrown.
      * @since 7.0
      */
-    public final function getFile(){}
+    public final function getFile(): string{}
 
 
     /**
@@ -413,7 +413,7 @@ class Error implements Throwable {
      * @return int Returns the line number where the thrown object was instantiated.
      * @since 7.0
      */
-    public final function getLine(){}
+    public final function getLine(): int{}
 
 
     /**
@@ -425,7 +425,7 @@ class Error implements Throwable {
      * </p>
      * @since 7.0
      */
-    public final function getTrace(){}
+    public final function getTrace(): array{}
 
     /**
      * Gets the stack trace as a string
@@ -433,7 +433,7 @@ class Error implements Throwable {
      * @return string Returns the stack trace as a string.
      * @since 7.0
      */
-    public final function getTraceAsString(){}
+    public final function getTraceAsString(): string{}
 
     /**
      * Returns the previous Throwable
@@ -441,14 +441,14 @@ class Error implements Throwable {
      * @return Throwable Returns the previous {@see Throwable} if available, or <b>NULL</b> otherwise.
      * @since 7.0
      */
-    public final function getPrevious(){}
+    public final function getPrevious(): Throwable{}
     /**
      * Gets a string representation of the thrown object
      * @link https://php.net/manual/en/throwable.tostring.php
      * @return string <p>Returns the string representation of the thrown object.</p>
      * @since 7.0
      */
-    public function __toString(){}
+    public function __toString(): string{}
 
     /**
      * Clone the error
@@ -540,7 +540,7 @@ class ErrorException extends Exception {
      * @param Exception $previous [optional] The previous exception used for the exception chaining.
      * @since 5.1.0
      */
-    public function __construct($message = "", $code = 0, $severity = 1, $filename = __FILE__, $lineno = __LINE__, $previous = null) { }
+    public function __construct(string $message = "", int $code = 0, int $severity = E_ERROR, string $filename = __FILE__, int $lineno = __LINE__, Exception $previous = null) { }
 
     /**
      * Gets the exception severity
@@ -548,7 +548,7 @@ class ErrorException extends Exception {
      * @return int the severity level of the exception.
      * @since 5.1.0
      */
-    final public function getSeverity() { }
+    final public function getSeverity(): int { }
 }
 
 /**
@@ -637,5 +637,5 @@ interface Countable {
      * The return value is cast to an integer.
      * @since 5.1.0
      */
-    public function count();
+    public function count(): int;
 }
