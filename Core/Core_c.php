@@ -1,4 +1,8 @@
 <?php
+/** @noinspection PhpUnused */
+/** @noinspection PhpMissingParentConstructorInspection */
+/** @noinspection PhpInconsistentReturnPointsInspection */
+/** @noinspection PhpLanguageLevelInspection */
 
 // Start of Core v.5.3.6-13ubuntu3.2
 
@@ -587,7 +591,7 @@ final class Closure {
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure Returns the newly created Closure object or FALSE on failure
      */
-    function bindTo($newthis, $newscope = 'static') { }
+    function bindTo($newthis, $newscope = 'static'): Closure { }
 
     /**
      * This method is a static version of Closure::bindTo().
@@ -601,12 +605,12 @@ final class Closure {
      * This determines the visibility of protected and private methods of the bound object.
      * @return Closure Returns the newly created Closure object or FALSE on failure
      */
-    static function bind(Closure $closure, $newthis, $newscope = 'static') { }
+    static function bind(Closure $closure, $newthis, $newscope = 'static'): Closure { }
 
     /**
      * Temporarily binds the closure to newthis, and calls it with any given parameters.
      * @link https://php.net/manual/en/closure.call.php
-     * @param object $newThis The object to bind the closure to for the duration of the call.
+     * @param object $newthis The object to bind the closure to for the duration of the call.
      * @param mixed $parameters [optional] Zero or more parameters, which will be given as parameters to the closure.
      * @return mixed
      * @since 7.0
@@ -618,7 +622,7 @@ final class Closure {
      * @return Closure
      * @since 7.1
      */
-    public static function fromCallable (callable $callable) {}
+    public static function fromCallable (callable $callable): Closure {}
 }
 
 /**
