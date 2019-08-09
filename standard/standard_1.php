@@ -1,4 +1,6 @@
-<?php
+<?php /** @noinspection PhpOptionalBeforeRequiredParametersInspection */
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpInconsistentReturnPointsInspection */
 
 
 /**
@@ -11,7 +13,7 @@
  * @since 4.0
  * @since 5.0
  */
-function strtoupper ($string) {}
+function strtoupper (string $string): string {}
 
 /**
  * Make a string lowercase
@@ -23,7 +25,9 @@ function strtoupper ($string) {}
  * @since 4.0
  * @since 5.0
  */
-function strtolower ($str) {}
+function strtolower (string $str): string {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Find the position of the first occurrence of a substring in a string
@@ -51,7 +55,9 @@ function strtolower ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function strpos ($haystack, $needle, $offset = 0) {}
+function strpos (string $haystack, $needle, int $offset = 0) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Find position of first occurrence of a case-insensitive string
@@ -77,7 +83,9 @@ function strpos ($haystack, $needle, $offset = 0) {}
  * stripos will return boolean false.
  * @since 5.0
  */
-function stripos ($haystack, $needle, $offset = null) {}
+function stripos (string $haystack, $needle, int $offset = 0) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Find the position of the last occurrence of a substring in a string
@@ -103,7 +111,9 @@ function stripos ($haystack, $needle, $offset = null) {}
  * @since 4.0
  * @since 5.0
  */
-function strrpos ($haystack, $needle, $offset = 0) {}
+function strrpos (string $haystack, $needle, int $offset = 0) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Find position of last occurrence of a case-insensitive string in a string
@@ -132,7 +142,7 @@ function strrpos ($haystack, $needle, $offset = 0) {}
  * If needle is not found, false is returned.
  * @since 5.0
  */
-function strripos ($haystack, $needle, $offset = null) {}
+function strripos (string $haystack, $needle, int $offset = 0) {}
 
 /**
  * Reverse a string
@@ -144,7 +154,7 @@ function strripos ($haystack, $needle, $offset = null) {}
  * @since 4.0
  * @since 5.0
  */
-function strrev ($string) {}
+function strrev (string $string): string{}
 
 /**
  * Convert logical Hebrew text to visual text
@@ -160,7 +170,7 @@ function strrev ($string) {}
  * @since 4.0
  * @since 5.0
  */
-function hebrev ($hebrew_text, $max_chars_per_line = null) {}
+function hebrev (string $hebrew_text, int $max_chars_per_line = 0): string {}
 
 /**
  * Convert logical Hebrew text to visual text with newline conversion
@@ -176,7 +186,7 @@ function hebrev ($hebrew_text, $max_chars_per_line = null) {}
  * @since 4.0
  * @since 5.0
  */
-function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
+function hebrevc (string $hebrew_text, int $max_chars_per_line = 0): string {}
 
 /**
  * Inserts HTML line breaks before all newlines in a string
@@ -191,7 +201,7 @@ function hebrevc ($hebrew_text, $max_chars_per_line = null) {}
  * @since 4.0
  * @since 5.0
  */
-function nl2br ($string, $is_xhtml = true) {}
+function nl2br (string $string, bool $is_xhtml = true): string {}
 
 /**
  * Returns filename component of path
@@ -212,7 +222,7 @@ function nl2br ($string, $is_xhtml = true) {}
  * @since 4.0
  * @since 5.0
  */
-function basename ($path, $suffix = null) {}
+function basename (string $path, string $suffix = null): string {}
 
 /**
  * Returns directory name component of path
@@ -237,7 +247,7 @@ function basename ($path, $suffix = null) {}
  * @since 4.0
  * @since 5.0
  */
-function dirname ($path, $levels = 1) {}
+function dirname (string $path, int $levels = 1): string {}
 
 /**
  * Returns information about a file path
@@ -264,7 +274,7 @@ function dirname ($path, $levels = 1) {}
  * @since 4.0.3
  * @since 5.0
  */
-function pathinfo ($path, $options = null) {}
+function pathinfo (string $path, int $options = PATHINFO_DIRNAME | PATHINFO_BASENAME | PATHINFO_EXTENSION | PATHINFO_FILENAME) {}
 
 /**
  * Un-quotes a quoted string
@@ -279,7 +289,7 @@ function pathinfo ($path, $options = null) {}
  * @since 4.0
  * @since 5.0
  */
-function stripslashes ($str) {}
+function stripslashes (string $str): string {}
 
 /**
  * Un-quote string quoted with <function>addcslashes</function>
@@ -291,7 +301,7 @@ function stripslashes ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function stripcslashes ($str) {}
+function stripcslashes (string $str): string {}
 
 /**
  * Find first occurrence of a string
@@ -313,7 +323,7 @@ function stripcslashes ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function strstr ($haystack, $needle, $before_needle = null) {}
+function strstr (string $haystack, $needle, bool $before_needle = false) {}
 
 /**
  * Case-insensitive <function>strstr</function>
@@ -335,7 +345,7 @@ function strstr ($haystack, $needle, $before_needle = null) {}
  * @since 4.0
  * @since 5.0
  */
-function stristr ($haystack, $needle, $before_needle = null) {}
+function stristr (string $haystack, $needle, bool $before_needle = false) {}
 
 /**
  * Find the last occurrence of a character in a string
@@ -358,7 +368,7 @@ function stristr ($haystack, $needle, $before_needle = null) {}
  * @since 4.0
  * @since 5.0
  */
-function strrchr ($haystack, $needle) {}
+function strrchr (string $haystack, string $needle) {}
 
 /**
  * Randomly shuffles a string
@@ -370,7 +380,7 @@ function strrchr ($haystack, $needle) {}
  * @since 4.3.0
  * @since 5.0
  */
-function str_shuffle ($str) {}
+function str_shuffle (string $str): string {}
 
 /**
  * Return information about words used in a string
@@ -391,7 +401,9 @@ function str_shuffle ($str) {}
  * @since 4.3.0
  * @since 5.0
  */
-function str_word_count ($string, $format = null, $charlist = null) {}
+function str_word_count (string $string, int $format = 0, string $charlist = null) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Convert a string to an array
@@ -414,7 +426,7 @@ function str_word_count ($string, $format = null, $charlist = null) {}
  * (and only) array element.
  * @since 5.0
  */
-function str_split ($string, $split_length = 1) {}
+function str_split (string $string, int $split_length = 1) {}
 
 /**
  * Search a string for any of a set of characters
@@ -429,7 +441,9 @@ function str_split ($string, $split_length = 1) {}
  * not found.
  * @since 5.0
  */
-function strpbrk ($haystack, $char_list) {}
+function strpbrk (string $haystack, string $char_list) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Binary safe comparison of 2 strings from an offset, up to length characters
@@ -460,7 +474,7 @@ function strpbrk ($haystack, $char_list) {}
  * false.
  * @since 5.0
  */
-function substr_compare ($main_str, $str, $offset, $length = null, $case_insensitivity = null) {}
+function substr_compare (string $main_str, string $str, int $offset, int $length = null, bool $case_insensitivity = false) {}
 
 /**
  * Locale based string comparison
@@ -478,7 +492,7 @@ function substr_compare ($main_str, $str, $offset, $length = null, $case_insensi
  * @since 4.0.5
  * @since 5.0
  */
-function strcoll ($str1, $str2) {}
+function strcoll (string $str1, string $str2): int {}
 
 /**
  * Formats a number as a currency string
@@ -496,7 +510,7 @@ function strcoll ($str1, $str2) {}
  * @since 4.3.0
  * @since 5.0
  */
-function money_format ($format, $number) {}
+function money_format (string $format, float $number): ?string {}
 
 /**
  * Return part of a string
@@ -550,7 +564,7 @@ function money_format ($format, $number) {}
  * @since 4.0
  * @since 5.0
  */
-function substr ($string, $start, $length = null) {}
+function substr (string $string, int $start, int $length = null) {}
 
 /**
  * Replace text within a portion of a string
@@ -601,7 +615,7 @@ function substr_replace ($string, $replacement, $start, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function quotemeta ($str) {}
+function quotemeta (string $str) {}
 
 /**
  * Make a string's first character uppercase
@@ -613,7 +627,7 @@ function quotemeta ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function ucfirst ($str) {}
+function ucfirst (string $str): string {}
 
 /**
  * Make a string's first character lowercase
@@ -624,7 +638,7 @@ function ucfirst ($str) {}
  * @return string the resulting string.
  * @since 5.3.0
  */
-function lcfirst ($str) {}
+function lcfirst (string $str): string {}
 
 /**
  * Uppercase the first character of each word in a string
@@ -637,7 +651,7 @@ function lcfirst ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function ucwords ($str, $delimiters = " \t\r\n\f\v") {}
+function ucwords (string $str, string $delimiters = " \t\r\n\f\v"): string {}
 
 /**
  * Translate certain characters
@@ -658,7 +672,7 @@ function ucwords ($str, $delimiters = " \t\r\n\f\v") {}
  * @since 4.0
  * @since 5.0
  */
-function strtr ($str, $from, $to) {}
+function strtr (string $str, $from, $to) {}
 
 /**
  * Quote string with slashes
@@ -670,7 +684,7 @@ function strtr ($str, $from, $to) {}
  * @since 4.0
  * @since 5.0
  */
-function addslashes ($str) {}
+function addslashes (string $str): string {}
 
 /**
  * Quote string with slashes in a C style
@@ -710,7 +724,7 @@ function addslashes ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function addcslashes ($str, $charlist) {}
+function addcslashes (string $str, string $charlist): string {}
 
 /**
  * Strip whitespace (or other characters) from the end of a string.
@@ -737,7 +751,7 @@ function addcslashes ($str, $charlist) {}
  * @since 4.0
  * @since 5.0
  */
-function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
+function rtrim (string $str, string $charlist = " \t\n\r\0\x0B"): string {}
 
 /**
  * Replace all occurrences of the search string with the replacement string
@@ -765,7 +779,7 @@ function rtrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * @since 4.0
  * @since 5.0
  */
-function str_replace ($search, $replace, $subject, &$count = null) {}
+function str_replace ($search, $replace, $subject, int &$count = null) {}
 
 /**
  * Case-insensitive version of <function>str_replace</function>.
@@ -790,7 +804,7 @@ function str_replace ($search, $replace, $subject, &$count = null) {}
  * @return mixed a string or an array of replacements.
  * @since 5.0
  */
-function str_ireplace ($search, $replace, $subject, &$count = null) {}
+function str_ireplace ($search, $replace, $subject, int &$count = null) {}
 
 /**
  * Repeat a string
@@ -811,7 +825,7 @@ function str_ireplace ($search, $replace, $subject, &$count = null) {}
  * @since 4.0
  * @since 5.0
  */
-function str_repeat ($input, $multiplier) {}
+function str_repeat (string $input, int $multiplier): string {}
 
 /**
  * Return information about characters used in a string
@@ -835,7 +849,7 @@ function str_repeat ($input, $multiplier) {}
  * @since 4.0
  * @since 5.0
  */
-function count_chars ($string, $mode = null) {}
+function count_chars (string $string, int $mode = 0) {}
 
 /**
  * Split a string into smaller chunks
@@ -853,7 +867,7 @@ function count_chars ($string, $mode = null) {}
  * @since 4.0
  * @since 5.0
  */
-function chunk_split ($body, $chunklen = null, $end = null) {}
+function chunk_split (string $body, int $chunklen = 76, string $end = "\r\n"): string {}
 
 /**
  * Strip whitespace (or other characters) from the beginning and end of a string
@@ -871,7 +885,7 @@ function chunk_split ($body, $chunklen = null, $end = null) {}
  * @since 4.0
  * @since 5.0
  */
-function trim ($str, $charlist = " \t\n\r\0\x0B") {}
+function trim (string $str, string $charlist = " \t\n\r\0\x0B"): string {}
 
 /**
  * Strip whitespace (or other characters) from the beginning of a string
@@ -904,7 +918,7 @@ function trim ($str, $charlist = " \t\n\r\0\x0B") {}
  * @since 4.0
  * @since 5.0
  */
-function ltrim ($str, $charlist = " \t\n\r\0\x0B") {}
+function ltrim (string $str, string $charlist = " \t\n\r\0\x0B"): string {}
 
 /**
  * Strip HTML and PHP tags from a string
@@ -924,7 +938,7 @@ function ltrim ($str, $charlist = " \t\n\r\0\x0B") {}
  * @since 4.0
  * @since 5.0
  */
-function strip_tags ($str, $allowable_tags = null) {}
+function strip_tags (string $str, string $allowable_tags = null): string {}
 
 /**
  * Calculate the similarity between two strings
@@ -944,7 +958,9 @@ function strip_tags ($str, $allowable_tags = null) {}
  * @since 4.0
  * @since 5.0
  */
-function similar_text ($first, $second, &$percent = null) {}
+function similar_text (string $first, string $second, float &$percent = null): int {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Split a string by string
@@ -977,7 +993,7 @@ function similar_text ($first, $second, &$percent = null) {}
  * @since 4.0
  * @since 5.0
  */
-function explode ($delimiter, $string, $limit = null) {}
+function explode (string $delimiter, string $string, int $limit = PHP_INT_MAX) {}
 
 /**
  * Join array elements with a string
@@ -995,7 +1011,7 @@ function explode ($delimiter, $string, $limit = null) {}
  * @since 4.0
  * @since 5.0
  */
-function implode ($glue = "", array $pieces) {}
+function implode (string $glue = "", array $pieces): string {}
 
 /**
  * &Alias; <function>implode</function>
@@ -1013,7 +1029,7 @@ function implode ($glue = "", array $pieces) {}
  * @since 4.0
  * @since 5.0
  */
-function join ($glue = "", $pieces) {}
+function join (string $glue = "", array $pieces): string {}
 
 /**
  * Set locale information
@@ -1087,7 +1103,7 @@ function join ($glue = "", $pieces) {}
  * @since 4.0
  * @since 5.0
  */
-function setlocale ($category, $locale, $_ = null) {}
+function setlocale (int $category, string $locale, string $_ = null) {}
 
 /**
  * Get numeric formatting information
@@ -1209,4 +1225,4 @@ function setlocale ($category, $locale, $_ = null) {}
  * @since 4.0.5
  * @since 5.0
  */
-function localeconv () {}
+function localeconv (): array {}

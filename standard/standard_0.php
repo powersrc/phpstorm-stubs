@@ -1,4 +1,7 @@
 <?php
+/** @noinspection PhpOptionalBeforeRequiredParametersInspection */
+/** @noinspection PhpUnused */
+/** @noinspection PhpInconsistentReturnPointsInspection */
 
 // Start of standard v.5.3.2-0.dotdeb.1
 
@@ -58,7 +61,7 @@ class php_user_filter  {
      * </tr>
      *
      */
-    public function filter($in, $out, &$consumed, $closing)
+    public function filter($in, $out, int &$consumed, bool $closing): int
     {
     }
 
@@ -66,14 +69,14 @@ class php_user_filter  {
      * @link https://php.net/manual/en/php-user-filter.oncreate.php
      * @return bool
      */
-    public function onCreate()
+    public function onCreate(): bool
     {
     }
 
     /**
      * @link https://php.net/manual/en/php-user-filter.onclose.php
      */
-    public function onClose()
+    public function onClose(): void
     {
     }
 
@@ -100,7 +103,7 @@ class Directory  {
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.close.php
      */
-    public function close ($dir_handle = null) {}
+    public function close ($dir_handle = null): void {}
 
     /**
      *  Rewind directory handle.
@@ -108,7 +111,7 @@ class Directory  {
      * @param resource $dir_handle [optional]
      * @link https://secure.php.net/manual/en/directory.rewind.php
      */
-    public function rewind ($dir_handle = null) {}
+    public function rewind ($dir_handle = null): void {}
 
     /**
      * Read entry from directory handle.
@@ -117,7 +120,7 @@ class Directory  {
      * @return string
      * @link https://secure.php.net/manual/en/directory.read.php
      */
-    public function read ($dir_handle = null) { }
+    public function read ($dir_handle = null): string { }
 
 }
 
@@ -132,7 +135,7 @@ class Directory  {
  * @since 4.0.4
  * @since 5.0
  */
-function constant ($name) {}
+function constant (string $name) {}
 
 /**
  * Convert binary data into hexadecimal representation
@@ -144,7 +147,9 @@ function constant ($name) {}
  * @since 4.0
  * @since 5.0
  */
-function bin2hex ($str) {}
+function bin2hex (string $str): string {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Delay execution
@@ -152,13 +157,13 @@ function bin2hex ($str) {}
  * @param int $seconds <p>
  * Halt time in seconds.
  * </p>
- * @return int zero on success, or false on errors. If the call was interrupted
+ * @return int|bool zero on success, or false on errors. If the call was interrupted
  * by a signal, sleep returns the number of seconds left
  * to sleep.
  * @since 4.0
  * @since 5.0
  */
-function sleep ($seconds) {}
+function sleep (int $seconds) {}
 
 /**
  * Delay execution in microseconds
@@ -171,7 +176,9 @@ function sleep ($seconds) {}
  * @since 4.0
  * @since 5.0
  */
-function usleep ($micro_seconds) {}
+function usleep (int $micro_seconds): void {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Delay for a number of seconds and nanoseconds
@@ -193,7 +200,7 @@ function usleep ($micro_seconds) {}
  * remaining in the delay
  * @since 5.0
  */
-function time_nanosleep ($seconds, $nanoseconds) {}
+function time_nanosleep (int $seconds, int $nanoseconds) {}
 
 /**
  * Make the script sleep until the specified time
@@ -204,7 +211,9 @@ function time_nanosleep ($seconds, $nanoseconds) {}
  * @return bool true on success or false on failure.
  * @since 5.1.0
  */
-function time_sleep_until ($timestamp) {}
+function time_sleep_until (float $timestamp): bool {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Parse a time/date generated with <function>strftime</function>
@@ -269,7 +278,7 @@ function time_sleep_until ($timestamp) {}
  * </table>
  * @since 5.1.0
  */
-function strptime ($date, $format) {}
+function strptime (string $date, string $format) {}
 
 /**
  * Flush the output buffer
@@ -278,7 +287,7 @@ function strptime ($date, $format) {}
  * @since 4.0
  * @since 5.0
  */
-function flush () {}
+function flush (): void {}
 
 /**
  * Wraps a string to a given number of characters
@@ -303,7 +312,7 @@ function flush () {}
  * @since 4.0.2
  * @since 5.0
  */
-function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
+function wordwrap (string $str, int $width = 75, string $break = "\n", bool $cut = false): string {}
 
 /**
  * Convert special characters to HTML entities
@@ -423,7 +432,7 @@ function wordwrap ($str, $width = 75, $break = "\n", $cut = false) {}
  * @since 4.0
  * @since 5.0
  */
-function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = true) {}
+function htmlspecialchars (string $string, int $flags = ENT_COMPAT | ENT_HTML401, string $encoding = null, bool $double_encode = true): string {}
 
 /**
  * Convert all applicable characters to HTML entities
@@ -471,7 +480,7 @@ function htmlspecialchars ($string, $flags = ENT_COMPAT | ENT_HTML401, $encoding
  * @since 4.0
  * @since 5.0
  */
-function htmlentities ($string, $quote_style = null, $charset = null, $double_encode = true) {}
+function htmlentities (string $string, int $quote_style = ENT_COMPAT | ENT_HTML401, string $charset = null, bool $double_encode = true): string {}
 
 /**
  * Convert all HTML entities to their applicable characters
@@ -514,7 +523,7 @@ function htmlentities ($string, $quote_style = null, $charset = null, $double_en
  * @since 4.3.0
  * @since 5.0
  */
-function html_entity_decode ($string, $quote_style = null, $charset = null) {}
+function html_entity_decode (string $string, int $quote_style = ENT_COMPAT | ENT_HTML401, string $charset = null): string {}
 
 /**
  * Convert special HTML entities back to characters
@@ -548,7 +557,7 @@ function html_entity_decode ($string, $quote_style = null, $charset = null) {}
  * @return string the decoded string.
  * @since 5.1.0
  */
-function htmlspecialchars_decode ($string, $quote_style = null) {}
+function htmlspecialchars_decode (string $string, int $quote_style = ENT_COMPAT | ENT_HTML401): string {}
 
 /**
  * Returns the translation table used by <function>htmlspecialchars</function> and <function>htmlentities</function>
@@ -727,7 +736,7 @@ function htmlspecialchars_decode ($string, $quote_style = null) {}
  * @since 4.0
  * @since 5.0
  */
-function get_html_translation_table ($table = null, $quote_style = null, string $encoding = "UTF-8") {}
+function get_html_translation_table (int $table = HTML_SPECIALCHARS, int $quote_style = ENT_COMPAT | ENT_HTML401, string $encoding = "UTF-8"): array {}
 
 /**
  * Calculate the sha1 hash of a string
@@ -745,7 +754,7 @@ function get_html_translation_table ($table = null, $quote_style = null, string 
  * @since 4.3.0
  * @since 5.0
  */
-function sha1 ($str, $raw_output = null) {}
+function sha1 (string $str, bool $raw_output = false): string {}
 
 /**
  * Calculate the sha1 hash of a file
@@ -761,7 +770,7 @@ function sha1 ($str, $raw_output = null) {}
  * @since 4.3.0
  * @since 5.0
  */
-function sha1_file ($filename, $raw_output = null) {}
+function sha1_file (string $filename, bool $raw_output = false): string {}
 
 /**
  * Calculate the md5 hash of a string
@@ -778,7 +787,7 @@ function sha1_file ($filename, $raw_output = null) {}
  * @since 4.0
  * @since 5.0
  */
-function md5 ($str, $raw_output = null) {}
+function md5 (string $str, bool $raw_output = false): string {}
 
 /**
  * Calculates the md5 hash of a given file
@@ -794,7 +803,7 @@ function md5 ($str, $raw_output = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function md5_file ($filename, $raw_output = null) {}
+function md5_file (string $filename, bool $raw_output = false): string {}
 
 /**
  * Calculates the crc32 polynomial of a string
@@ -806,7 +815,9 @@ function md5_file ($filename, $raw_output = null) {}
  * @since 4.0.1
  * @since 5.0
  */
-function crc32 ($str) {}
+function crc32 (string $str): int {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Parse a binary IPTC block into single tags.
@@ -820,7 +831,7 @@ function crc32 ($str) {}
  * @since 4.0
  * @since 5.0
  */
-function iptcparse ($iptcblock) {}
+function iptcparse (string $iptcblock) {}
 
 /**
  * Embeds binary IPTC data into a JPEG image.
@@ -841,7 +852,9 @@ function iptcparse ($iptcblock) {}
  * @since 4.0
  * @since 5.0
  */
-function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
+function iptcembed (string $iptcdata, string $jpeg_file_name, int $spool = 0) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Get the size of an image
@@ -906,7 +919,7 @@ function iptcembed ($iptcdata, $jpeg_file_name, $spool = null) {}
  * @since 4.0
  * @since 5.0
  */
-function getimagesize ($filename, array &$imageinfo = null) {}
+function getimagesize (string $filename, array &$imageinfo = null) {}
 
 /**
  * Get Mime-Type for image-type returned by getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
@@ -995,7 +1008,7 @@ function getimagesize ($filename, array &$imageinfo = null) {}
  * </tr>
  * </table>
  */
-function image_type_to_mime_type ($imagetype) {}
+function image_type_to_mime_type (int $imagetype): string {}
 
 /**
  * Get file extension for image type
@@ -1009,7 +1022,7 @@ function image_type_to_mime_type ($imagetype) {}
  * @return string A string with the extension corresponding to the given image type.
  * @since 5.0
  */
-function image_type_to_extension ($imagetype, $include_dot = null) {}
+function image_type_to_extension (int $imagetype, bool $include_dot = true): string {}
 
 /**
  * Outputs lots of PHP information
@@ -1097,7 +1110,7 @@ function image_type_to_extension ($imagetype, $include_dot = null) {}
  * @since 4.0
  * @since 5.0
  */
-function phpinfo ($what = null) {}
+function phpinfo (int $what = INFO_ALL): bool {}
 
 /**
  * Gets the current PHP version
@@ -1112,7 +1125,7 @@ function phpinfo ($what = null) {}
  * @since 4.0
  * @since 5.0
  */
-function phpversion ($extension = null) {}
+function phpversion (string $extension = null) {}
 
 /**
  * Prints out the credits for PHP
@@ -1179,7 +1192,7 @@ function phpversion ($extension = null) {}
  * @since 4.0
  * @since 5.0
  */
-function phpcredits ($flag = null) {}
+function phpcredits (int $flag = CREDITS_ALL): bool {}
 
 /**
  * @deprecated 5.5 Removed in PHP 5.5
@@ -1189,7 +1202,7 @@ function phpcredits ($flag = null) {}
  * @since 4.0
  * @since 5.0
  */
-function php_logo_guid () {}
+function php_logo_guid (): string {}
 
 /**
  * @deprecated 5.5 Removed in PHP 5.5
@@ -1213,7 +1226,7 @@ function php_egg_logo_guid () {}
  * @since 4.0
  * @since 5.0
  */
-function zend_logo_guid () {}
+function zend_logo_guid (): string {}
 
 /**
  * Returns the type of interface between web server and PHP
@@ -1234,7 +1247,7 @@ function zend_logo_guid () {}
  * @since 4.0.1
  * @since 5.0
  */
-function php_sapi_name () {}
+function php_sapi_name (): string {}
 
 /**
  * Returns information about the operating system PHP is running on
@@ -1248,7 +1261,7 @@ function php_sapi_name () {}
  * @since 4.0.2
  * @since 5.0
  */
-function php_uname ($mode = null) {}
+function php_uname (string $mode = 'a'): string {}
 
 /**
  * Return a list of .ini files parsed from the additional ini dir
@@ -1289,7 +1302,7 @@ function php_ini_loaded_file () {}
  * @since 4.0
  * @since 5.0
  */
-function strnatcmp ($str1, $str2) {}
+function strnatcmp (string $str1, string $str2): int {}
 
 /**
  * Case insensitive string comparisons using a "natural order" algorithm
@@ -1307,7 +1320,7 @@ function strnatcmp ($str1, $str2) {}
  * @since 4.0
  * @since 5.0
  */
-function strnatcasecmp ($str1, $str2) {}
+function strnatcasecmp (string $str1, string $str2): int {}
 
 /**
  * Count the number of substring occurrences
@@ -1330,7 +1343,7 @@ function strnatcasecmp ($str1, $str2) {}
  * @since 4.0
  * @since 5.0
  */
-function substr_count ($haystack, $needle, $offset = null, $length = null) {}
+function substr_count (string $haystack, string $needle, int $offset = 0, int $length = null): int {}
 
 /**
  * Finds the length of the first segment of a string consisting
@@ -1384,7 +1397,7 @@ function substr_count ($haystack, $needle, $offset = null, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function strspn ($subject, $mask, $start = null, $length = null) {}
+function strspn (string $subject, string $mask, int $start = null, int $length = null): int {}
 
 /**
  * Find length of initial segment not matching mask
@@ -1405,7 +1418,7 @@ function strspn ($subject, $mask, $start = null, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function strcspn ($str1, $str2, $start = null, $length = null) {}
+function strcspn (string $str1, string $str2, int $start = null, int $length = null): int {}
 
 /**
  * Tokenize string
@@ -1425,4 +1438,4 @@ function strcspn ($str1, $str2, $start = null, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function strtok ($str = null, $token) {}
+function strtok (string $str = null, string $token): string {}
