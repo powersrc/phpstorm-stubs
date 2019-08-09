@@ -1,4 +1,5 @@
 <?php
+/** @noinspection PhpInconsistentReturnPointsInspection */
 
 /**
  * (PHP 5.5.0)<br/>
@@ -7,7 +8,7 @@
  * @return bool The boolean value of var.
  * @since 5.5.0
  */
-function boolval($var) {}
+function boolval($var): bool {}
 
 /**
  * Get the integer value of a variable
@@ -37,7 +38,7 @@ function boolval($var) {}
  * @since 4.0
  * @since 5.0
  */
-function intval ($var, $base = null) {}
+function intval ($var, int $base = 10): int {}
 
 /**
  * Get float value of a variable
@@ -47,7 +48,7 @@ function intval ($var, $base = null) {}
  * @since 4.2.0
  * @since 5.0
  */
-function floatval ($var) {}
+function floatval ($var): float {}
 
 /**
  * (PHP 4.2.0, PHP 5)<br/>
@@ -58,7 +59,7 @@ function floatval ($var) {}
  * @param mixed $var May be any scalar type. should not be used on objects, as doing so will emit an E_NOTICE level error and return 1.
  * @return float value of the given variable. Empty arrays return 0, non-empty arrays return 1.
  */
-function doubleval ($var) {}
+function doubleval ($var): float {}
 
 /**
  * Get string value of a variable
@@ -74,7 +75,7 @@ function doubleval ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function strval ($var) {}
+function strval ($var): string {}
 
 /**
  * Get the type of a variable
@@ -97,7 +98,7 @@ function strval ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function gettype ($var) {}
+function gettype ($var): string {}
 
 /**
  * Set the type of a variable
@@ -135,7 +136,7 @@ function gettype ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function settype (&$var, $type) {}
+function settype (&$var, string $type): bool {}
 
 /**
  * Finds whether a variable is &null;
@@ -148,7 +149,7 @@ function settype (&$var, $type) {}
  * @since 4.0.4
  * @since 5.0
  */
-function is_null ($var) {}
+function is_null ($var): bool {}
 
 /**
  * Finds whether a variable is a resource
@@ -161,7 +162,7 @@ function is_null ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_resource ($var) {}
+function is_resource ($var): bool {}
 
 /**
  * Finds out whether a variable is a boolean
@@ -174,7 +175,7 @@ function is_resource ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_bool ($var) {}
+function is_bool ($var): bool {}
 
 /**
  * &Alias; <function>is_int</function>
@@ -187,7 +188,7 @@ function is_bool ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_long ($var) {}
+function is_long ($var): bool {}
 
 /**
  * Finds whether the type of a variable is float
@@ -200,7 +201,7 @@ function is_long ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_float ($var) {}
+function is_float ($var): bool {}
 
 /**
  * Find whether the type of a variable is integer
@@ -213,7 +214,7 @@ function is_float ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_int ($var) {}
+function is_int ($var): bool {}
 
 /**
  * &Alias; <function>is_int</function>
@@ -226,7 +227,7 @@ function is_int ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_integer ($var) {}
+function is_integer ($var): bool {}
 
 /**
  * &Alias; <function>is_float</function>
@@ -239,7 +240,7 @@ function is_integer ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_double ($var) {}
+function is_double ($var): bool {}
 
 /**
  * &Alias; <function>is_float</function>
@@ -252,7 +253,7 @@ function is_double ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_real ($var) {}
+function is_real ($var): bool {}
 
 /**
  * Finds whether a variable is a number or a numeric string
@@ -265,7 +266,7 @@ function is_real ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_numeric ($var) {}
+function is_numeric ($var): bool {}
 
 /**
  * Find whether the type of a variable is string
@@ -278,7 +279,7 @@ function is_numeric ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_string ($var) {}
+function is_string ($var): bool {}
 
 /**
  * Finds whether a variable is an array
@@ -291,7 +292,7 @@ function is_string ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_array ($var) {}
+function is_array ($var): bool {}
 
 /**
  * Finds whether a variable is an object
@@ -304,7 +305,7 @@ function is_array ($var) {}
  * @since 4.0
  * @since 5.0
  */
-function is_object ($var) {}
+function is_object ($var): bool {}
 
 /**
  * Finds whether a variable is a scalar
@@ -317,7 +318,7 @@ function is_object ($var) {}
  * @since 4.0.5
  * @since 5.0
  */
-function is_scalar ($var) {}
+function is_scalar ($var): bool {}
 
 /**
  * Verify that the contents of a variable can be called as a function
@@ -345,7 +346,7 @@ function is_scalar ($var) {}
  * @since 5.0
  * @since 7.0
  */
-function is_callable ($var, $syntax_only = null, &$callable_name = null) {}
+function is_callable ($var, bool $syntax_only = false, string &$callable_name = null): bool {}
 
 /**
  * Verify that the contents of a variable is a countable value
@@ -355,7 +356,7 @@ function is_callable ($var, $syntax_only = null, &$callable_name = null) {}
  * @return bool <b>TRUE</b> if $var is countable, <b>FALSE</b> otherwise.
  * @since 7.3
  */
-function is_countable($var) {}
+function is_countable($var): bool {}
 
 /**
  * Closes process file pointer
@@ -371,7 +372,9 @@ function is_countable($var) {}
  * @since 4.0
  * @since 5.0
  */
-function pclose ($handle) {}
+function pclose ($handle): int {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Opens process file pointer
@@ -394,7 +397,9 @@ function pclose ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function popen ($command, $mode) {}
+function popen (string $command, string $mode) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Outputs a file
@@ -415,7 +420,7 @@ function popen ($command, $mode) {}
  * @since 4.0
  * @since 5.0
  */
-function readfile ($filename, $use_include_path = null, $context = null) {}
+function readfile (string $filename, bool $use_include_path = false, $context = null) {}
 
 /**
  * Rewind the position of a file pointer
@@ -428,7 +433,7 @@ function readfile ($filename, $use_include_path = null, $context = null) {}
  * @since 4.0
  * @since 5.0
  */
-function rewind ($handle) {}
+function rewind ($handle): bool {}
 
 /**
  * Removes directory
@@ -441,7 +446,7 @@ function rewind ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function rmdir ($dirname, $context = null) {}
+function rmdir (string $dirname, $context = null): bool {}
 
 /**
  * Changes the current umask
@@ -454,7 +459,7 @@ function rmdir ($dirname, $context = null) {}
  * @since 4.0
  * @since 5.0
  */
-function umask ($mask = null) {}
+function umask (int $mask = null): int {}
 
 /**
  * Closes an open file pointer
@@ -467,7 +472,7 @@ function umask ($mask = null) {}
  * @since 4.0
  * @since 5.0
  */
-function fclose ($handle) {}
+function fclose ($handle): bool {}
 
 /**
  * Tests for end-of-file on a file pointer
@@ -478,7 +483,7 @@ function fclose ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function feof ($handle) {}
+function feof ($handle): bool {}
 
 /**
  * Gets character from file pointer
@@ -515,7 +520,7 @@ function fgetc ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function fgets ($handle, $length = null) {}
+function fgets ($handle, int $length = null) {}
 
 /**
  * Gets line from file pointer and strip HTML tags
@@ -538,7 +543,7 @@ function fgets ($handle, $length = null) {}
  * @since 5.0
  * @deprecated 7.3
  */
-function fgetss ($handle, $length = null, $allowable_tags = null) {}
+function fgetss ($handle, int $length = null, string $allowable_tags = null) {}
 
 /**
  * Binary-safe file read
@@ -551,7 +556,9 @@ function fgetss ($handle, $length = null, $allowable_tags = null) {}
  * @since 4.0
  * @since 5.0
  */
-function fread ($handle, $length) {}
+function fread ($handle, int $length) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Opens file or URL
@@ -732,7 +739,9 @@ function fread ($handle, $length) {}
  * @since 4.0
  * @since 5.0
  */
-function fopen ($filename, $mode, $use_include_path = null, $context = null) {}
+function fopen (string $filename, string $mode, bool $use_include_path = false, $context = null) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Output all remaining data on a file pointer
@@ -771,7 +780,7 @@ function fpassthru ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function ftruncate ($handle, $size) {}
+function ftruncate ($handle, int $size): bool {}
 
 /**
  * Gets information about a file using an open file pointer
@@ -782,7 +791,7 @@ function ftruncate ($handle, $size) {}
  * @since 4.0
  * @since 5.0
  */
-function fstat ($handle) {}
+function fstat ($handle): array {}
 
 /**
  * Seeks on a file pointer
@@ -812,7 +821,9 @@ function fstat ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function fseek ($handle, $offset, $whence = SEEK_SET) {}
+function fseek ($handle, int $offset, int $whence = SEEK_SET): int {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Returns the current position of the file read/write pointer
@@ -841,7 +852,9 @@ function ftell ($handle) {}
  * @since 4.0.1
  * @since 5.0
  */
-function fflush ($handle) {}
+function fflush ($handle): bool {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Binary-safe file write
@@ -866,7 +879,9 @@ function fflush ($handle) {}
  * @since 4.0
  * @since 5.0
  */
-function fwrite ($handle, $string, $length = null) {}
+function fwrite ($handle, string $string, int $length = null) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * &Alias; <function>fwrite</function>
@@ -893,7 +908,7 @@ function fwrite ($handle, $string, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function fputs ($handle, $string, $length = null) {}
+function fputs ($handle, string $string, int $length = null) {}
 
 /**
  * Attempts to create the directory specified by pathname.
@@ -923,7 +938,7 @@ function fputs ($handle, $string, $length = null) {}
  * @since 4.0
  * @since 5.0
  */
-function mkdir ($pathname, $mode = 0777, $recursive = false, $context = null) {}
+function mkdir (string $pathname, int $mode = 0777, bool $recursive = false, $context = null): bool {}
 
 /**
  * Renames a file or directory
@@ -943,7 +958,7 @@ function mkdir ($pathname, $mode = 0777, $recursive = false, $context = null) {}
  * @since 4.0
  * @since 5.0
  */
-function rename ($oldname, $newname, $context = null) {}
+function rename (string $oldname, string $newname, $context = null): bool {}
 
 /**
  * Copies file
@@ -967,7 +982,7 @@ function rename ($oldname, $newname, $context = null) {}
  * @since 4.0
  * @since 5.0
  */
-function copy ($source, $dest, $context = null) {}
+function copy (string $source, string $dest, $context = null): bool {}
 
 /**
  * Create file with unique file name
@@ -984,7 +999,9 @@ function copy ($source, $dest, $context = null) {}
  * @since 4.0
  * @since 5.0
  */
-function tempnam ($dir, $prefix) {}
+function tempnam (string $dir, string $prefix) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Creates a temporary file
@@ -995,6 +1012,8 @@ function tempnam ($dir, $prefix) {}
  * @since 5.0
  */
 function tmpfile () {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Reads entire file into an array
@@ -1027,7 +1046,7 @@ function tmpfile () {}
  * @since 4.0
  * @since 5.0
  */
-function file ($filename, $flags = null, $context = null) {}
+function file (string $filename, int $flags = 0, $context = null) {}
 
 /**
  * Reads entire file into a string
@@ -1055,7 +1074,9 @@ function file ($filename, $flags = null, $context = null) {}
  * @since 4.3.0
  * @since 5.0
  */
-function file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $maxlen = null) {}
+function file_get_contents (string $filename, bool $use_include_path = false, $context = null, int $offset = 0, int $maxlen = null) {}
+
+/** @noinspection PhpDocSignatureInspection */
 
 /**
  * Write a string to a file
@@ -1130,4 +1151,4 @@ function file_get_contents ($filename, $use_include_path = false, $context = nul
  * false on failure.
  * @since 5.0
  */
-function file_put_contents ($filename, $data, $flags = 0, $context = null) {}
+function file_put_contents (string $filename, $data, int $flags = 0, $context = null) {}
